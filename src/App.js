@@ -25,7 +25,7 @@ function App() {
       }
     });
     const isFull = !boardState.includes('');
-    if(isFull && whoWon == ''){
+    if(isFull && whoWon === null){
       alert("Nikt nie wygrał! :(");
       window.location.reload();
     }
@@ -34,7 +34,6 @@ function App() {
   useEffect(() => {
     checkifWin()
   }, [boardState])
-
 
   function changeContent(id) {
     if(turn == 'X'){
@@ -64,13 +63,10 @@ function App() {
       changeBoard(pom)
       checkifWin()
       changeTurn('X')
-      
     }
-    }
-    
+  }
 
   return (
-    
     <div className="App">
         <img src={logo} className="App-logo" alt="logo" id='logo' />
       <div id='board'>
