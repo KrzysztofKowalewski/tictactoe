@@ -7,13 +7,13 @@ function App() {
   const [boardState, changeBoard] = useState(['','','','','','','','',''])
   const [turn, changeTurn] = useState('X')
   const winner = [[0,1,2],[3,4,5],[6,7,8],[0,3,6],[1,4,7],[2,5,8],[0,4,8],[2,4,6]]
-  const whoWon = ''
+  const [whoWon, setWinner] = useState(null);
 
   function checkifWin(){
     const pom1 = winner.map((comb,i) => {
       if(boardState[comb[0]] === 'X' && boardState[comb[1]] === 'X' && boardState[comb[2]] == 'X'){
         alert("Wygrywa krzyżyk!");
-        whoWon = 'X'
+        setWinner('X')
         window.location.reload();
       }
     });
@@ -21,7 +21,7 @@ function App() {
     const pom2 = winner.map((comb,i) => {
       if(boardState[comb[0]] === 'O' && boardState[comb[1]] === 'O' && boardState[comb[2]] == 'O'){
         alert("Wygrywa kółko!");
-        whoWon = "O"
+        setWinner('O')
         window.location.reload();
       }
     });
