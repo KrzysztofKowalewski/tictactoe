@@ -3,14 +3,13 @@ import './App.css';
 import {useEffect, useState } from 'react';
 
 function App() {
-  //const boardState = ['','','','','','','','','']
   let [boardState, changeBoard] = useState(['','','','','','','','',''])
   let [turn, changeTurn] = useState('X')
   const winner = [[0,1,2],[3,4,5],[6,7,8],[0,3,6],[1,4,7],[2,5,8],[0,4,8],[2,4,6]]
   let [whoWon, setWinner] = useState(null);
 
   function checkifWin(){
-    const pom1 = winner.map((comb,i) => {
+    let pom1 = winner.map((comb,i) => {
       if(boardState[comb[0]] === 'X' && boardState[comb[1]] === 'X' && boardState[comb[2]] == 'X'){
         alert("Wygrywa krzyżyk!");
         setWinner('X')
@@ -18,14 +17,14 @@ function App() {
       }
     });
 
-    const pom2 = winner.map((comb,i) => {
+    let pom2 = winner.map((comb,i) => {
       if(boardState[comb[0]] === 'O' && boardState[comb[1]] === 'O' && boardState[comb[2]] == 'O'){
         alert("Wygrywa kółko!");
         setWinner('O')
         window.location.reload();
       }
     });
-    const isFull = !boardState.includes('');
+    let isFull = !boardState.includes('');
     if(isFull && whoWon === ''){
       alert("Nikt nie wygrał! :(");
       window.location.reload();
@@ -39,7 +38,7 @@ function App() {
 
   function changeContent(id) {
     if(turn == 'X'){
-      const pom = boardState.map((x, i) => {
+      let pom = boardState.map((x, i) => {
           if(i === id){
               x = "X"
               return x
@@ -53,7 +52,7 @@ function App() {
       changeTurn('O')
     }
     else{
-      const pom = boardState.map((o, i) => {
+      let pom = boardState.map((o, i) => {
           if(i === id){
               o = "O"
               return o
