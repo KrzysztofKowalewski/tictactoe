@@ -24,8 +24,8 @@ function App() {
         window.location.reload();
       }
     });
-    let isFull = !boardState.includes('');
-    if(isFull && whoWon === ''){
+    const isFull = !boardState.includes('');
+    if(isFull && whoWon == ''){
       alert("Nikt nie wygrał! :(");
       window.location.reload();
     }
